@@ -76,3 +76,25 @@ const respuestaFilter = arreglo
         }
     );
 console.log('respuestaFind', respuestaFilter);
+
+respuestaSome = arreglo
+    .some(
+        (valorActual, indiceActual, arregloCompleto) => {
+            return valorActual.nota < 9;
+        }
+    );
+
+console.log('respuestaSome', respuestaSome);
+
+
+respuestaReduce = arreglo
+    .reduce(
+        (valorAcumulado, valorActual, indiceActual, arregloCompleto) => {
+            return valorAcumulado + valorActual.nota;
+        },
+        0
+    );
+
+console.log('respuestaAny', respuestaReduce);
+
+
