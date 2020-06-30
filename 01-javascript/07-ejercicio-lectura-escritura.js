@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function escribirArchivo(path, contenidoNuevo) {
+function appendArchivo(path, contenidoNuevo) {
     fs.readFile(
         path,
         'utf-8',
@@ -10,19 +10,23 @@ function escribirArchivo(path, contenidoNuevo) {
             } else {
                 const contenidoAnterior = data;
                 const contenidoAEscribir = contenidoAnterior + contenidoNuevo;
-                fs.writeFile(
-                    path,
-                    contenidoAEscribir,
-                    (err2, data2) => {
-                        if (err2) {
-                            console.log(err2);
-                        } else {
-                            console.log('escritura terminada');
-                        }
-                    }
-                )
+                escribirArchivo(path, contenidoAEscribir);
             }
         })
 }
 
-escribirArchivo('./ejemplo.txt', 'prueba');
+escribirArchivo(path, contenido) {
+    fs.writeFile(
+        path,
+        contenidoAEscribir,
+        (err2, data2) => {
+            if (err2) {
+                console.log(err2);
+            } else {
+                console.log('escritura terminada');
+            }
+        }
+    )
+}
+
+appendArchivo('./ejemplo.txt', 'prueba');
