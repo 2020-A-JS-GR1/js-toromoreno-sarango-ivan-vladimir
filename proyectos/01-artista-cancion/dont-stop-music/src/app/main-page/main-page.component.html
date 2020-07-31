@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+  <title>Broadcast by TEMPLATED</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <h1><a href="#">Don't<span> Stop Music</span></a></h1>
+  </header>
+
+  <!-- Nav -->
+  <nav id="menu">
+    <ul class="links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="generic.html">Generic</a></li>
+      <li><a href="elements.html">Elements</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner -->
+  <!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. /assets/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+
+  <!-- Main -->
+  <div id="main" *ngIf="artists">
+
+    <!-- One -->
+    <section class="wrapper style1">
+      <div class="inner">
+        <header class="align-center">
+          <h2>Artistas populares</h2>
+          <p>Estos son los artistas más populares de la semana</p>
+        </header>
+        <!-- 2 Column Video Section -->
+        <div class="flex flex-2">
+          <div class="video col" (click)="detailArtist(artists[0].name)">
+            <div class="image fit image-artist">
+              <img src={{artists[0].photoUrl}} alt="" />
+              <div class="arrow">
+                <div class="icon fa-play"></div>
+              </div>
+            </div>
+            <p class="caption">
+              {{artists[0].name}}
+            </p>
+            <a class="link"><span>Click Me</span></a>
+          </div>
+
+          <div class="video col" (click)="detailArtist(artists[1].name)">
+            <div class="image fit image-artist">
+              <img src="{{artists[1].photoUrl}}" alt="" />
+              <div class="arrow">
+                <div class="icon fa-play"></div>
+              </div>
+            </div>
+            <p class="caption">
+              {{artists[1].name}}
+            </p>
+            <a class="link"><span>Click Me</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two -->
+    <section class="wrapper style2">
+      <div class="inner">
+        <header>
+          <h2>Explora nuevos géneros</h2>
+          <p>Atrévete a encontrar nuevos géneros que pueden volar tu cabeza.</p>
+        </header>
+        <!-- Tabbed Video Section -->
+        <div class="flex flex-tabs">
+          <ul class="tab-list">
+            <li><a data-tab="tab-1" class="active" (click)="exploreArtists()">Explorar artistas</a></li>
+            <li><a data-tab="tab-2" (click)="exploreSongs()">Explorar canciones</a></li>
+          </ul>
+          <div class="tabs">
+
+            <!-- Tab 1 -->
+            <div class="tab tab-1 flex flex-3 active">
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic01.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic02.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic03.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic04.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic05.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic06.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+            </div>
+
+            <!-- Tab 2 -->
+            <div class="tab tab-2 flex flex-3">
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic06.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic05.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic04.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic03.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic02.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic01.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+            </div>
+
+            <!-- Tab 3 -->
+            <div class="tab tab-3 flex flex-3">
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic03.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic02.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic01.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic06.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic05.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+              <!-- Video Thumbnail -->
+              <div class="video col">
+                <div class="image fit">
+                  <img src="/assets/pic04.jpg" alt="" />
+                  <div class="arrow">
+                    <div class="icon fa-play"></div>
+                  </div>
+                </div>
+                <a href="generic.html" class="link"><span>Click Me</span></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three -->
+    <section class="wrapper" *ngIf="songs">
+      <div class="inner">
+        <header class="align-center">
+          <h2>Canciones más populares</h2>
+          <p>Estas son las canciones más escuchadas de la semana, ¿te animas a escucharlas?</p>
+        </header>
+
+        <!-- 3 Column Video Section -->
+        <div class="flex flex-3">
+          <div class="video col" (click)="detailSong(songs[0])">
+            <div class="image fit song-image">
+              <img src="{{songs[0].photoUrl}}" alt="" />
+              <div class="arrow">
+                <div class="icon fa-play"></div>
+              </div>
+            </div>
+            <p class="caption">
+              {{songs[0].name}}
+            </p>
+            <a class="link"><span>Click Me</span></a>
+          </div>
+          <div class="video col" (click)="detailSong(songs[1])">
+            <div class="image fit song-image">
+              <img src="{{songs[1].photoUrl}}" alt="" />
+              <div class="arrow">
+                <div class="icon fa-play"></div>
+              </div>
+            </div>
+            <p class="caption">
+              {{songs[1].name}}
+            </p>
+            <a class="link"><span>Click Me</span></a>
+          </div>
+          <div class="video col" (click)="detailSong(songs[2])">
+            <div class="image fit song-image">
+              <img src="{{songs[2].photoUrl}}" alt="" />
+              <div class="arrow">
+                <div class="icon fa-play"></div>
+              </div>
+            </div>
+            <p class="caption">
+              {{songs[2].name}}
+            </p>
+            <a class="link"><span>Click Me</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+  <title>Generic - Broadcast by TEMPLATED</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body class="subpage">
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">DS Music</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="p-3 mb-2 bg-dark text-white">
+    <form [formGroup]="artistForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Nombre del artista</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+          placeholder="Ingresa el nombre del artista" formControlName="name" disabled *ngIf="editForm">
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+          placeholder="Ingresa el nombre de la canción" formControlName="name" *ngIf="!editForm">
+      </div>
+      <div class="form-group">
+        <label for="activeArtist">Actualmente activo</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="active" id="exampleRadios1" value="true"
+            formControlName="active">
+          <label class="form-check-label" for="exampleRadios1">
+            Sí
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="active" id="exampleRadios2" value="false"
+            formControlName="active">
+          <label class="form-check-label" for="exampleRadios1">
+            No
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">URL de la foto</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+          placeholder="Ingresa el URL de la foto del artista" formControlName="photoUrl">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Fecha de nacimiento/formación</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" formControlName="foundationDate"
+          value="{{artist.foundationDate | date:'yyyy-MM-dd'}}" placeholder="Ingresa el nombre de la canción">
+      </div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Confirmar
+      </button>
+    </form>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Al dar click en confirmar se guardarán tus cambios
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="submit()">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

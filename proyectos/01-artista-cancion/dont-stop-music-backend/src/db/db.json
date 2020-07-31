@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Metallica",
+    "rating": 5,
+    "foundationDate": "2020-07-21T06:53:29.559Z",
+    "currentlyActive": true,
+    "photoUrl": "https://wallpaperaccess.com/full/1088418.jpg",
+    "songs": [
+      {
+        "name": "One",
+        "availableForDownload": false,
+        "videoUrl": "https://www.youtube.com/watch?v=WM8bTdBs-cw",
+        "rating": 5,
+        "releaseDate": "2020-07-21T06:53:29.559Z",
+        "photoUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.discogs.com%2Fes%2FMetallica-One%2Frelease%2F1365463&psig=AOvVaw2JdfwHpzRTJ9VWDxb3fZCd&ust=1595401011076000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOD0rYji3eoCFQAAAAAdAAAAABAD"
+      }
+    ]
+  }
+]
