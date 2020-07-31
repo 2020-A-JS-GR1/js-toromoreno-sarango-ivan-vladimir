@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+  <title>Generic - Broadcast by TEMPLATED</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body class="subpage">
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">DS Music</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="p-3 mb-2 bg-dark text-white">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Nombre de la canción</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+          placeholder="Ingresa el nombre de la canción" value="{{songData.name}}">
+      </div>
+      <div class="form-group">
+        <label for="{{songData.availableForDownload}}">Disponible para ser descargada</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" checked *ngIf="songData.availableForDownload">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" *ngIf="!songData.availableForDownload">
+          <label class="form-check-label" for="exampleRadios1">
+            Sí
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" checked *ngIf="!songData.availableForDownload">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" *ngIf="songData.availableForDownload">
+          <label class="form-check-label" for="exampleRadios1">
+            No
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">URL de vídeo</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+          placeholder="Ingresa el URL del vídeo de la canción" value="{{songData.videoUrl}}">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">URL de la foto</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"
+          placeholder="Ingresa el URL de la foto de la canción" value="{{songData.photoUrl}}">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Fecha de lanzamiento</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" value="{{songData.releaseDate | date:'yyyy-MM-dd'}}"
+          placeholder="Ingresa el nombre de la canción">
+      </div>
+      <button type="submit" class="btn btn-info">Confirmar</button>
+    </form>
+  </div>
+</body>
+
+</html>
