@@ -48,7 +48,7 @@
 
         <!-- 3 Column Video Section -->
         <div class="flex flex-3">
-          <div class="video col" *ngFor="let song of songs">
+          <div class="video col" *ngFor="let song of songs" (click)="detailSong(song.name)">
             <div class="image fit song-image">
               <img src="{{song.photoUrl}}" alt="" />
               <div class="arrow">
@@ -58,7 +58,7 @@
             <p class="caption">
               {{song.name}}
             </p>
-            <a href="generic.html" class="link"><span>Click Me</span></a>
+            <a class="link"><span>Click Me</span></a>
           </div>
         </div>
       </div>

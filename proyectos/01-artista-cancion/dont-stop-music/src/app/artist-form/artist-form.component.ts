@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Artist } from '../interfaces/artist';
 import { environment } from 'src/environments/environment';
@@ -24,7 +24,8 @@ export class ArtistFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.artistForm = this.formBuilder.group({
       name: '',
@@ -47,8 +48,7 @@ export class ArtistFormComponent implements OnInit {
                   return artist.name === this.artistName;
                 }
               );
-              const dateParts = this.artist.foundationDate.toString().split("/");
-              this.artist.foundationDate = new Date(+dateParts[2], (+dateParts[1] - 1), +dateParts[0]);
+              this.artist.foundationDate = new Date(this.artist.foundationDate);
               this.artistForm.patchValue({
                 name: this.artist.name,
                 active: this.artist.currentlyActive ? 'true' : 'false',
@@ -65,6 +65,10 @@ export class ArtistFormComponent implements OnInit {
             photoUrl: '',
             rating: 5
           };
+          this.http.get(environment.serverAddress).subscribe(
+            response => {
+              this.artists = response as Artist[];
+            })
         }
       });
   }
@@ -75,11 +79,22 @@ export class ArtistFormComponent implements OnInit {
       ...this.artist,
       ...artistFormInfo,
     };
-    this.http.put(environment.serverAddress, this.artist).subscribe(
-      response => {
-        console.log(response);
-      }
-    )
+    if (!this.editForm) {
+      this.artists.push(this.artist);
+      this.http.post(environment.serverAddress, this.artist).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/']);
+        }
+      )
+    } else {
+      this.http.put(environment.serverAddress, this.artist).subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/']);
+        }
+      )
+    }
     console.log(this.artist);
   }
 

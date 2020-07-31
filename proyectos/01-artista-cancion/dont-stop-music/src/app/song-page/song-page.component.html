@@ -40,7 +40,8 @@
         </header>
         <div style="text-align: center;">
           <div class="video-wrapper">
-            <iframe width="560" height="315" [src]="getVideoIframe(songData.videoUrl)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" [src]="getVideoIframe(songData.videoUrl)" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <p class="caption">
             Cuenta con un ranking de {{songData.rating}} estrellas dentro de la plataforma
@@ -65,7 +66,7 @@
           <h3>Más opciones</h3>
           <ul class="alt">
             <li><a routerLink='/song-edit/{{songData.name}}'>Editar información</a></li>
-            <li><a href="#">Eliminar canción</a></li>
+            <li (click)="delete()">Eliminar canción</li>
           </ul>
         </div>
       </div>

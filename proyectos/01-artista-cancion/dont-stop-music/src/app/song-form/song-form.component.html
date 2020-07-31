@@ -23,25 +23,23 @@
     </button>
   </nav>
 
-  <div class="p-3 mb-2 bg-dark text-white">
-    <form>
+  <div class="p-3 mb-2 bg-dark text-white" *ngIf="song">
+    <form [formGroup]="songForm">
       <div class="form-group">
         <label for="exampleFormControlInput1">Nombre de la canción</label>
         <input type="text" class="form-control" id="exampleFormControlInput1"
-          placeholder="Ingresa el nombre de la canción" value="{{songData.name}}">
+          placeholder="Ingresa el nombre de la canción" value="{{song.name}}" formControlName="name">
       </div>
       <div class="form-group">
-        <label for="{{songData.availableForDownload}}">Disponible para ser descargada</label>
+        <label for="{{song.availableForDownload}}">Disponible para ser descargada</label>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" checked *ngIf="songData.availableForDownload">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" *ngIf="!songData.availableForDownload">
+          <input class="form-check-input" type="radio" name="availableForDownload" id="exampleRadios1" formControlName="availableForDownload" value="true">
           <label class="form-check-label" for="exampleRadios1">
             Sí
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" checked *ngIf="!songData.availableForDownload">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" *ngIf="songData.availableForDownload">
+          <input class="form-check-input" type="radio" name="availableForDownload" id="exampleRadios2" checked formControlName="availableForDownload" value="false">
           <label class="form-check-label" for="exampleRadios1">
             No
           </label>
@@ -50,21 +48,47 @@
       <div class="form-group">
         <label for="exampleFormControlInput1">URL de vídeo</label>
         <input type="text" class="form-control" id="exampleFormControlInput1"
-          placeholder="Ingresa el URL del vídeo de la canción" value="{{songData.videoUrl}}">
+          placeholder="Ingresa el URL del vídeo de la canción" value="{{song.videoUrl}}" formControlName="videoUrl">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">URL de la foto</label>
         <input type="text" class="form-control" id="exampleFormControlInput1"
-          placeholder="Ingresa el URL de la foto de la canción" value="{{songData.photoUrl}}">
+          placeholder="Ingresa el URL de la foto de la canción" value="{{song.photoUrl}}" formControlName="photoUrl">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Fecha de lanzamiento</label>
-        <input type="date" class="form-control" id="exampleFormControlInput1" value="{{songData.releaseDate | date:'yyyy-MM-dd'}}"
-          placeholder="Ingresa el nombre de la canción">
+        <input type="date" class="form-control" id="exampleFormControlInput1"
+          value="{{song.releaseDate | date:'yyyy-MM-dd'}}" placeholder="Ingresa la fecha de lanzamiento de la canción" formControlName="releaseDate">
       </div>
-      <button type="submit" class="btn btn-info">Confirmar</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Confirmar
+      </button>
     </form>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Al dar click en confirmar se guardarán tus cambios
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="submit()">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

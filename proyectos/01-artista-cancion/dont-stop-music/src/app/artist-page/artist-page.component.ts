@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Artist } from '../interfaces/artist';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class ArtistPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -35,6 +36,14 @@ export class ArtistPageComponent implements OnInit {
           }
         );
       });
+  }
+
+  delete() {
+    this.http.delete(`${environment.serverAddress}/${this.artistName}`).subscribe(
+      response => {
+        this.router.navigate(['/']);
+      }
+    );
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Artist } from '../interfaces/artist';
 import { environment } from 'src/environments/environment';
@@ -23,7 +23,8 @@ export class SongPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private sanitazer: DomSanitizer
+    private sanitazer: DomSanitizer,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -51,7 +52,7 @@ export class SongPageComponent implements OnInit {
         artist.songs.forEach(song => {
           const songArtistAux = {
             song,
-            artist: artist.name
+            artist
           };
           this.songsArtists = this.songsArtists.concat(songArtistAux);
         });
@@ -71,6 +72,16 @@ export class SongPageComponent implements OnInit {
     return this.sanitazer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);
   }
 
+  delete() {
+    const songArtist = this.songsArtists.find(sa => sa.song.name === this.songName);
+    const songIndex = songArtist.artist.songs.findIndex(song => song.name === this.songName);
+    this.songArtist.artist.songs.splice(songIndex, 1);
+    this.http.put(environment.serverAddress, this.songArtist.artist).subscribe(
+      response => {
+        this.router.navigate(['/']);
+      }
+    )
+  }
 
 
 }

@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'song/:name', component: SongPageComponent },
   { path: 'song-edit', component: SongFormComponent },
   { path: 'song-edit/:name', component: SongFormComponent },
+  { path: 'artist-edit', component: ArtistFormComponent },
   { path: 'artist-edit/:name', component: ArtistFormComponent },
 ];
 

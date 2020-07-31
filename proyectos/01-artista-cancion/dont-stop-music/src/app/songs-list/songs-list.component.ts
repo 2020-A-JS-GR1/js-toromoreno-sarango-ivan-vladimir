@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from '../interfaces/song';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Artist } from '../interfaces/artist';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class SongsListComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,6 +35,10 @@ export class SongsListComponent implements OnInit {
         this.songs = this.songs.concat(artist.songs);
       }
     );
+  }
+
+  detailSong(song: Artist) {
+    this.router.navigate([`/song/${song}`]);
   }
 
 }
